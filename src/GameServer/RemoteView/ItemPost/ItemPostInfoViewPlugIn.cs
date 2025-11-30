@@ -43,11 +43,11 @@ public class ItemPostInfoViewPlugIn : IItemPostInfoViewPlugIn
         int Write()
         {
             var itemSerializer = this._player.ItemSerializer;
-            var size = ItemPostInfo.GetRequiredSize(itemSerializer.NeededSpace);
+            var size = ItemPostInfoRef.GetRequiredSize(itemSerializer.NeededSpace);
             var span = connection.Output.GetSpan(size)[..size];
-            var packet = new ItemPostInfo(span);
+            var packet = new ItemPostInfoRef(span);
             var itemSize = itemSerializer.SerializeItem(packet.ItemData, item);
-            var actualSize = ItemPostInfo.GetRequiredSize(itemSize);
+            var actualSize = ItemPostInfoRef.GetRequiredSize(itemSize);
             span.Slice(0, actualSize).SetPacketSize();
             return actualSize;
         }

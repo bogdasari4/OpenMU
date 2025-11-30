@@ -61,7 +61,9 @@ public class ItemPostAction
         }
 
         foreach (var option in item.ItemOptions
-                     .Where(o => o.ItemOption?.OptionType is ItemOptionTypes.Option or ItemOptionTypes.Luck)
+                     .Where(o =>
+                         o.ItemOption?.OptionType == ItemOptionTypes.Option
+                         || o.ItemOption?.OptionType == ItemOptionTypes.Luck)
                      .OrderBy(o => o.ItemOption?.OptionType == ItemOptionTypes.Option))
         {
             var levelOption = option.ItemOption?.LevelDependentOptions.FirstOrDefault(o => o.Level == (option.ItemOption.LevelType == LevelType.ItemLevel ? item.Level : option.Level));
