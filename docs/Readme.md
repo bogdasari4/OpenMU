@@ -138,6 +138,8 @@ database (e.g. RavenDB).
 
 * [Packets](Packets/Readme.md): Information about the packet structures
 
+* [External plugin development](PlugIns/ExternalPluginDevelopment.md): How to implement and ship plugins without modifying core projects
+
 * [Master Skill System](MasterSystem.md): Description about the master skill system
 
 * [GameMap](GameMap.md): Description about the GameMap implementation
